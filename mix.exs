@@ -50,7 +50,8 @@ defmodule FiveTwoOne.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:mox, "~> 1.0", only: :test}
+      {:mox, "~> 1.0", only: :test},
+      {:timex, "~> 3.7"}
     ]
   end
 

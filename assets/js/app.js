@@ -21,8 +21,11 @@ import "phoenix_html"
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
+import './leaflet-map'
+import './leaflet-map/leaflet-marker'
+import './leaflet-map/leaflet-icon'
 
-import * as TruckMap from "./truck_map"
+// import * as TruckMap from "./TruckMap"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
@@ -40,10 +43,3 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
-
-window.leafletMap = L.map('map').setView([51.505, -0.09], 13);
-
-window.addEventListener("phx:page-loading-stop", _info => {
-	TruckMap.setupMap(window.leafletMap);
-})
-

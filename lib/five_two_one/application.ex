@@ -16,6 +16,7 @@ defmodule FiveTwoOne.Application do
       {Phoenix.PubSub, name: FiveTwoOne.PubSub},
       # Start Finch
       {Finch, name: FiveTwoOne.Finch},
+      FiveTwoOne.SfDataMffp,
       # Start the Endpoint (http/https)
       FiveTwoOneWeb.Endpoint
       # Start a worker by calling: FiveTwoOne.Worker.start_link(arg)
