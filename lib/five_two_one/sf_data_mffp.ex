@@ -17,14 +17,19 @@ defmodule FiveTwoOne.SfDataMffp do
         |> Enum.filter(fn facility ->
           facility["food_items"] && facility["status"] == "APPROVED"
         end)
-        |> IO.inspect(label: "Facilities with food items", limit: :infinity)
         |> Enum.map(fn facility ->
+          food_items =
+            facility["food_items"]
+            |> String.split(":")
+            |> Enum.map(&String.trim/1)
+
           %{
             id: facility["id"],
             applicant: facility["applicant"],
-            food_items: facility["food_items"],
+            food_items: food_items,
             latitude: facility["latitude"],
-            longitude: facility["longitude"]
+            longitude: facility["longitude"],
+            address: facility["address"]
           }
         end)
 

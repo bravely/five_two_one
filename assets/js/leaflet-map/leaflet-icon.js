@@ -1,6 +1,6 @@
 // Icons from https://github.com/pointhi/leaflet-color-markers
 
-export const validColors = ['blue', 'gold', 'red', 'green', 'orange', 'yellow', 'violet', 'grey', 'black']
+export const validColors = ['blue', 'red', 'green', 'orange', 'yellow', 'violet', 'grey', 'black']
 
 export const markerIcons = Object.fromEntries(
 	validColors.map(color => [color, new L.Icon({

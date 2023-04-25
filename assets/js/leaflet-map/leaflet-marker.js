@@ -22,7 +22,12 @@ class LeafletMarker extends HTMLElement {
       this.parentMap.markerFeatureGroup.addLayer(this.marker)
 
       // So the click event makes it to Phoenix
-      this.marker.on('click', this.click.bind(this))
+      this.marker.on('click', this.click.bind(this)
+    )
+
+    if (this.hasChildNodes()) {
+      this.marker.bindPopup(this.innerHTML)
+    }
   }
 
   attributeChangedCallback(name, _oldValue, _newValue) {
