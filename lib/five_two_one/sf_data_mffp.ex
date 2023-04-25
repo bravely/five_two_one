@@ -14,10 +14,14 @@ defmodule FiveTwoOne.SfDataMffp do
     case get_all_facilities() do
       {:ok, data} ->
         data
-        |> Enum.filter(& &1["food_items"])
+        |> Enum.filter(fn facility ->
+          facility["food_items"] && facility["status"] == "APPROVED"
+        end)
+        |> IO.inspect(label: "Facilities with food items", limit: :infinity)
         |> Enum.map(fn facility ->
           %{
             id: facility["id"],
+            applicant: facility["applicant"],
             food_items: facility["food_items"],
             latitude: facility["latitude"],
             longitude: facility["longitude"]

@@ -8,6 +8,8 @@ defmodule FiveTwoOne.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      FiveTwoOne.Games.Registry,
+      FiveTwoOne.Games.Supervisor,
       # Start the Telemetry supervisor
       FiveTwoOneWeb.Telemetry,
       # Start the Ecto repository
